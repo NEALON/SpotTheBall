@@ -16,4 +16,4 @@ When multiple judges have "judged" the position, the results are vectorised and 
 
 We also built a full custom backend for the general game administration and everything else you'd expect.​ I'm not sure we'll be taking this to market ourselves and are currently seeking partners / operators in the gaming industry to help us go from demo to having real people spending lots of hard earned cash playing it.
 
-[Visit the Demo](http://html5boilerplate.com)
+[Visit the Demo](http://nealon.github.com/SpotTheBall/)
