@@ -1,0 +1,18 @@
+//
+// Chrome Frame Prompt
+//
+
+@mixin h5bp-chromeframe {
+  .chromeframe { 
+    margin: 0; 
+    background: #F2DEDE; 
+    color: #B94A48!important; 
+    padding: 0.2em 0.5em; 
+    text-align: center;
+    
+    a {
+      color: #B94A48!important;
+      text-decoration: underline!important; 
+    }
+  }
+}

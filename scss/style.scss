@@ -1,0 +1,381 @@
+/*
+ * Author: Eugene Tsurcan
+ * email: tsurcan@softreactor.com
+ */
+
+
+// Variables
+// -----------------------------------
+
+// Colours
+$black: #000000;
+$white: #ffffff;
+
+$colour-text: $white;
+$colour-link: $white;
+
+
+// Typography
+$baseFontFamily: Arial, sans-serif;
+$baseFontSize: 14px;
+$baseLineHeight: 1.3;
+$baseFontWeight: 400;
+
+
+// Include Files
+// -----------------------------------
+
+// CSS3 Compass (http://compass-style.org/reference/compass/css3/)
+@import "compass";
+
+// HTML5 - Boilerplate (http://h5bp.com/css)
+@import "h5bp";
+
+// CSS3 Compass-Animation (https://github.com/ericam/compass-animation)
+@import "animation";
+
+
+// Fonts Import
+// -----------------------------------
+@import url(http://fonts.googleapis.com/css?family=Arvo:700|Quicksand|Open+Sans:300italic,400,700);
+
+
+/*
+ * Base CSS
+ * -----------------------------------
+ */
+body { 
+  font: {family: $baseFontFamily; size: $baseFontSize; weight: $baseFontWeight;} 
+  line-height: $baseLineHeight; 
+  color: $colour-text;
+  text-align: center;
+  background-color: $black;
+  
+  &.none-bg-back #content_main { background-image: none!important; } 
+  
+  &.admin-p {
+    &.judges #list-game-block tbody .status .btn30_ .cont_ { text-align: center; width: 125px; }  
+    
+    #middle_block .two_column {
+      .right_content_block { width: 155px; }
+      .left_content_block { width: 723px; }
+    }
+    
+    .grid_div table td { border-top: 0 none; border-left: 0 none; }
+    
+    .show_td { overflow: visible; }
+  }
+  
+  &.admin-page {
+    #menu-right-b {
+      .bg_css3 { width: 137px; padding-bottom: 90px; }
+      .admin-menu-right_border-b .h-title { text-transform: uppercase; font-size: 18px; color: #666666; line-height: 1.0; display: inline-block; width: 100%; text-align: center; }
+    }
+    
+    .admin-menu-right_border-b .content-b .btn30_ { margin: 15px 0 0 0; 
+      &:first-child { margin: 20px 0 0 0; }
+      
+      .cont_{ padding: 0; text-align: center; width: 125px; }
+    }    
+    
+    #list-game-block { 
+      table { width: 677px; }
+      tbody .status .btn30_ .cont_ { width: 72px; }
+    }
+  }
+  
+  &.place-spot-popup {
+    .grid_div table { border-right: 0 none; }
+    .screen_show { border-right: 1px solid $white; }
+    #popup-block { top: 249px; 
+      .inner-main { left: 115px; }
+    }
+  }
+  
+  &.login-popup, &.play-popup, &.select-stake-popup {
+    #top_profile_block .left_border, #your_balance_block .main_c .bottom_ .play_now_btn, .play_now_block__ { z-index: 100; position: relative; top: 0; left: 0; }
+  }
+  
+  &.login-popup #popup-block { top: 50px; 
+    .inner-main { padding: 3px; left: 310px; 
+      .content-popup { padding: 8px 12px; 
+        p { text-align: left; }
+      }
+    }
+  }
+  
+  &.select-stake-popup #popup-block{ top: 460px; 
+    .inner-main { left: 0; }
+  }  
+  
+  &.select-panel-popup, &.place-spot-popup {
+    .screen_show { z-index: 100; }
+    .grid_div { z-index: 101; }
+    #middle_block .two_column .left_content_block { *position: relative; *z-index: 100; }
+  }  
+  
+  &.place-spot-popup #popup-block .inner-main .content-popup { padding: 8px 5px; }
+  
+  &.select-panel-popup #popup-block{ top: 440px; 
+    .inner-main { left: 100px; 
+      .content-popup { padding: 8px 80px 8px 20px; text-align: left; }
+    }
+  }
+  
+  &.play-popup, &.select-stake-popup {
+    #popup-block .inner-main .content-popup { padding: 8px 60px 8px 50px; }
+  }
+  
+  &.play-popup { 
+    #middle_block .two_column .right_content_block { *z-index: 100; *position: relative; }
+    #popup-block { top: 215px; 
+      .inner-main { left: -25px; }
+    }
+  }
+  
+  &.end-quick-tour-popup #popup-block .inner-main .content-popup { padding: 30px 50px; }
+  
+  .none-bg-back #content_main { background-image: none!important; }
+}
+
+p { padding-bottom: 10px; }
+
+i { font-style: italic; }
+
+strong { font-weight: bold; }
+
+a { color: $colour-link; outline: none; text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+h1, h2, h3, h4, h5, h6 { 
+  > small { }
+}
+
+h1 { }
+h2 { }
+h3 { }
+h4 { }
+h5 { }
+h6 { }
+
+blockquote {}
+
+img { display: block; }
+
+
+/*
+ * BUTTONS CSS
+ */
+
+
+/*
+ * Header CSS
+ */
+#header { display: inline-block; width: 100%; text-align: left;
+  a {
+    &.logo { display: inline-block; float: left; width: 392px; height: 62px; margin: 20px 0 0 50px; background: url(../images/logo.png) 0 0 no-repeat; }
+    &.logo-2{ display: inline-block; float: left; width: 290px; height: 50px; margin: 30px 0 0 50px; background: url(../images/logo-2.png) 0 0 no-repeat; }
+  }
+  
+  ul.top_menu_{ display: inline-block; width: 898px; overflow: hidden; white-space: nowrap; padding: 15px 50px 0 50px; margin: 0; font-weight: bold; text-transform: uppercase;
+    li { display: inline-block; float: left; padding: 0 0 0 20px; 
+      &:first-child { padding: 0; }
+      
+      a { font-weight: bold; text-transform: uppercase; }
+    }
+  }
+}
+
+#top_profile_block { 
+  float: right; 
+  margin: 0 50px 0 0; 
+  border: 1px solid #986500; 
+  border-width: 0 1px 1px 1px;
+  background: #30210c; 
+  @include background-image(linear-gradient(#ac8124, #30210c));
+  @include border-radius(#{0 0 5px 5px});  
+  
+  .left_border { display: inline-block; position: relative; padding: 0 0 0 5px; }
+  
+  .right_border { display: inline-block; padding: 0 5px 0 0; }
+  
+  .main_c { display: inline-block; height: 30px; line-height: 30px; vertical-align: middle; white-space: nowrap; 
+    a { float: left; margin: 0 12px; }
+    .msg_ { margin: 0 53px 0 12px; padding: 0 0 0 32px; background: url(../images/bg/your_profile/msg_icon.png) center left no-repeat; }
+    .login { padding: 0 120px 0 0; background: url(../images/bg/facebook-ico.png) center right no-repeat; }
+    .strip { float: left; width: 1px; height: 30px; overflow: hidden; background:  #986500; @include background-image(linear-gradient(#103708, #986500)); }
+  }
+  
+  &.login-n-signup { border: 0 none; background:  #a1a1a1; @include background-image(linear-gradient(#fafafa, #a1a1a1)); 
+    .main_c { height: 31px; 
+      a { font-weight: bold; text-transform: uppercase; color: #333333; }
+      .strip { @include background-image(linear-gradient(#999999, #999999)); } 
+    }
+  }
+}
+
+#top_block_head { 
+  display: inline-block; 
+  width: 898px; 
+  height: 38px; 
+  white-space: nowrap;
+  margin: 10px 50px 0 50px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #996701;
+  background:  #a1a1a1;
+  @include background-image(linear-gradient(#fafafa, #a1a1a1));
+  @include border-radius(5px);
+  
+  .left_border { display: inline-block; padding: 0 0 0 4px; }
+  
+  .right_border { display: inline-block; padding: 0 4px 0 0; }
+  
+  .main_c { display: inline-block; height: 38px; width: 892px; 
+    .title_ { 
+      padding: 0 0 0 13px; 
+      height: 38px; 
+      line-height: 36px; 
+      vertical-align: middle; 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      z-index: 2; 
+      white-space: nowrap; 
+      overflow: hidden;
+      font: {family: "Bebas"; size: 16px;}
+      
+      span, a { text-transform: uppercase; color: #555555; }
+    } 
+  }
+}
+
+#block_time_and_price {
+  display: inline-block;
+  height: 38px;
+  line-height: 36px;
+  vertical-align: middle;
+  position: absolute;
+  right: 0;
+  top: 0;
+  white-space: nowrap;
+  z-index: 3;
+  
+  .left_border { 
+    display: inline-block; 
+    position: relative; 
+    border-left: 1px solid #996701; 
+    background:  #ff3500;
+    @include background-image(linear-gradient(#ff6500, #ff3500));
+    @include border-radius(#{0 3px 3px 0});
+  }
+  
+  .right_border { display: inline-block; padding: 0 4px 0 0; }
+  
+  .main_c { display: inline-block; width: 273px; padding: 0 8px 0 14px; 
+    .time_, .num-state-game-judge { display: inline-block; float: left; padding: 0 9px 0 0; height: 38px; }    
+    .num-state-game-judge .num { padding: 0 5px 0 0; }
+    .price_ { float: right; height: 38px; }
+    sub { position: relative; top: -2px; }
+    .t_ { font-family: "Bebas"; font-size: 16px; text-transform: uppercase; padding: 0 3px 0 0; }
+    .info_ { font-size: 12px; }
+    .currency { font-size: 18px; }
+  }
+}
+
+
+/*
+ * Main CSS
+ */
+#content_main { display: inline-block; width: 1000px; background: url(../images/bg_main_basket.jpg) top center no-repeat transparent; }
+
+#middle_block { display: inline-block; width: 100%; padding: 20px 0 0 0; 
+  .two_column { padding: 0 50px 0 50px; 
+    .left_content_block { float: left; width: 578px; padding: 0 0 20px 0; }
+    .right_content_block { float: right; width: 300px; padding: 0 0 20px 0; 
+      .section-b-right { margin: 20px 0 0 0; 
+        &:first-child { margin: 0; }
+      }
+    }
+  }
+}
+
+#game_screen_main { display: inline-block; position: relative; padding: 0 26px 1px 0; background: url(../images/bg/border_right_game_screen.jpg) top right repeat-y;
+  .border_white_top_ { display: inline-block; position: absolute; top: 0; right: 0; width: 26px; height: 1px; background-color: $white; }
+  .border_white_bottom_ { display: inline-block; position: absolute; bottom: 0; right: 0; width: 26px; height: 1px; background-color: $white; }
+}
+
+#game_screen_main_zoom { display: inline-block; position: relative; padding: 0 26px 0 0; background: url(../images/bg/border_right_game_screen.jpg) top right repeat-y;
+  .border_white_top_ { display: inline-block; position: absolute; top: 0; right: 0; width: 26px; height: 1px; background-color: $white; }
+  .border_white_bottom_ { display: inline-block; position: absolute; bottom: 0; right: 0; width: 26px; height: 1px; background-color: $white; }
+}
+
+#your_balance_block {
+  display: inline-block;
+  width: 298px;
+  border: 1px solid #996701; 
+  background:  #30210c;
+  @include background-image(linear-gradient(#ac8124, #30210c));
+  @include border-radius(5px);
+  
+  .left_border { display: inline-block; padding: 0 0 0 5px; }
+  .right_border { display: inline-block; padding: 0 5px 0 0; }
+  .main_c { display: inline-block; width: 288px; height: 78px; overflow: hidden; 
+    .top_ { white-space: nowrap; overflow: hidden; padding: 8px 8px 0 10px; }
+    .title_ { float: left; text-transform: uppercase; font: {family: "Bebas"; size: 18px;} }
+    .your_balance_val { float: right; font-size: 20px; }
+    .bottom_ { position: relative; height: 30px; margin: 8px 5px 0 5px; 
+      .play_now_btn { float: left; 
+        .cont_ { padding: 0; width: 122px; }
+      }
+      .add_funds_btn { float: right; position: absolute; right: 0; top: 0; 
+        .cont_ { padding: 0; width: 122px; }
+      }
+    }
+  }
+}
+
+
+/*
+ * Footer CSS
+ */
+#footer { 
+  
+}
+
+
+/*
+ * Special Classes
+ */
+.clearfix { @include micro-clearfix; }
+
+.replace        { @include hide-text; }
+.replace-right  { @include hide-text(right); }
+
+.left   { @include float-left; }
+.right  { @include float-right; }
+
+
+/*
+ * h5bp-chromeframe
+ */
+@include h5bp-chromeframe;
+
+
+/*
+ * Print CSS
+ * -----------------------------------
+ */
+@media print {}
+
+
+/*
+ * Style overrides for IE6-8
+ * http://jonikorpi.com/leaving-old-IE-behind/
+ */
+.lt-ie9 {
+  
+}
+
+
