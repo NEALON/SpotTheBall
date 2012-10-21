@@ -51,8 +51,8 @@
         
         <!-- BEGIN: Navigation Top -->
           
-          <nav>
-            <ul class="top_menu_">
+          <nav class="top_menu_">
+            <ul>
               <li><a href="http://nealon.github.com/SpotTheBall/">Home</a></li>
               <li><a href="#">Games</a></li>
               <li><a href="#">Winners</a></li>
@@ -74,7 +74,7 @@
             
             <!-- BEGIN: List Games -->
             
-              <ul class="game-list-b">
+              <ul class="game-list-b clearfix">
                 <li class="football">
                   <a href="football-landing.html">
                     <div class="title">Football</div>
@@ -126,31 +126,34 @@
             <!-- END: Description Bottom -->
             
           </div>
-        </div>
-      </div>
-    </section>
+        </div>        
+      </section>
+      
+    <!-- END: Main Section -->
     
-  <!-- END: Main Section -->
+    <div id="root_footer"></div>
+  
+  </div>
   
   <!-- BEGIN: Footer -->
   
-    <footer id="footer">
+    <footer id="footer" class="clearfix">
       
       <!-- BEGIN: Copyright -->
       
-        <div class="copyright">&copy; Copyright 2011</div>
+        <div class="copyright">&copy; 2012 Double Digital</div>
         
       <!-- END: Copyright -->
       
       <!-- BEGIN: Navigation Bottom -->
         
-        <nav>
-          <ul class="terms-conditions-b">
-            <li><a href="#">About</a>&nbsp;|&nbsp;</li>
-            <li><a href="#">Help</a>&nbsp;|&nbsp;</li>
-            <li><a href="#">Contact us</a>&nbsp;|&nbsp;</li>
-            <li><a href="#">Terms &amp; Conditions</a>&nbsp;|&nbsp;</li>
+        <nav class="terms-conditions-b">
+          <ul>            
             <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms &amp; Conditions</a>&nbsp;|&nbsp;</li>
+            <li><a href="#">Contact us</a>&nbsp;|&nbsp;</li>
+            <li><a href="#">Help</a>&nbsp;|&nbsp;</li>
+            <li><a href="#">About</a>&nbsp;|&nbsp;</li>
           </ul>
         </nav>
         
@@ -167,7 +170,7 @@
 
   <!-- scripts concatenated and minified via build script -->
   <script src="js/plugins.min.js"></script>
-  <script src="js/script.min.js"></script>
+  <script src="js/script.js"></script>
   <!-- end scripts -->
 </body>
 </html>

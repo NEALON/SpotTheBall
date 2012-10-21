@@ -37,13 +37,16 @@ $baseFontWeight: 400;
 
 // Fonts Import
 // -----------------------------------
-@import url(http://fonts.googleapis.com/css?family=Arvo:700|Quicksand|Open+Sans:300italic,400,700);
+@font-face { font-family: "Bebas"; src: url("../fonts/BEBAS___.TTF"); }
+@font-face { font-family: "Rockwell"; src: url("../fonts/Rockwell-Regular.ttf"); }
 
 
 /*
  * Base CSS
  * -----------------------------------
  */
+@include sticky-footer(22px, unquote("#content_main"), unquote("#root_footer"), unquote("#footer"));
+
 body { 
   font: {family: $baseFontFamily; size: $baseFontSize; weight: $baseFontWeight;} 
   line-height: $baseLineHeight; 
@@ -167,6 +170,57 @@ img { display: block; }
 /*
  * BUTTONS CSS
  */
+.btn30_ { display: inline-block; height: 30px; text-decoration: none; cursor: pointer;   
+  .b_l_ { 
+    display: inline-block; 
+    padding: 0 0 0 5px;
+    border: 1px solid #000000;
+    background:  #acacac;
+    @include background-image(linear-gradient(#fafafa, #acacac));
+    @include border-radius(#{5px});  
+  }
+  
+  .b_r_ { display: inline-block; padding: 0 5px 0 0; }
+  
+  .cont_ { 
+    font: {size: 12px; weight: bold;} 
+    color: #555555; 
+    height: 28px; 
+    line-height: 28px; 
+    vertical-align: middle; 
+    display: inline-block; 
+    background: {position: 0 0; repeat: repeat-x;} 
+    text-transform: uppercase; 
+  }
+  
+  &.grey { font-family: $baseFontFamily; font-size: $baseFontSize; color: #555555; 
+    .b_l_ { border: 1px solid #000000; background:  #acacac; @include background-image(linear-gradient(#fafafa, #acacac)); @include border-radius(#{5px}); }
+  }
+  
+  &.green {
+    .b_l_ { background:  #00a200; @include background-image(linear-gradient(#00c900, #00a200)); }
+    .cont_ { color: $white; }
+  }
+  
+  &.red {
+    .b_l_ { background:  #d50000; @include background-image(linear-gradient(#fc0000, #d50000)); }
+    .cont_ { color: $white; }
+  }
+  
+  &.orange { color: $white; 
+    .b_l_ { background:  #ff3c00; @include background-image(linear-gradient(#ff6300, #ff3c00)); } 
+    .cont_ { color: $white; }
+  }
+  
+  &.hover, &.active, &.grey.hover, &.grey.active {
+    .b_l_ { background:  #ff3c00; @include background-image(linear-gradient(#ff6300, #ff3c00)); }
+  }
+}
+
+.btn30_.hover, .orange-btn.active { color: $white!important; 
+  .cont_ { color: $white; }
+}
+
 
 
 /*
@@ -175,10 +229,10 @@ img { display: block; }
 #header { display: inline-block; width: 100%; text-align: left;
   a {
     &.logo { display: inline-block; float: left; width: 392px; height: 62px; margin: 20px 0 0 50px; background: url(../images/logo.png) 0 0 no-repeat; }
-    &.logo-2{ display: inline-block; float: left; width: 290px; height: 50px; margin: 30px 0 0 50px; background: url(../images/logo-2.png) 0 0 no-repeat; }
+    &.logo-2 { display: inline-block; float: left; width: 290px; height: 50px; margin: 30px 0 0 50px; background: url(../images/logo-2.png) 0 0 no-repeat; }
   }
   
-  ul.top_menu_{ display: inline-block; width: 898px; overflow: hidden; white-space: nowrap; padding: 15px 50px 0 50px; margin: 0; font-weight: bold; text-transform: uppercase;
+  .top_menu_ { display: inline-block; width: 898px; overflow: hidden; white-space: nowrap; padding: 15px 50px 0 50px; margin: 0; font-weight: bold; text-transform: uppercase;
     li { display: inline-block; float: left; padding: 0 0 0 20px; 
       &:first-child { padding: 0; }
       
@@ -336,13 +390,170 @@ img { display: block; }
   }
 }
 
+.brow_block_st { display: inline-block; position: relative; padding: 5px 0; border: 1px solid #996701; background: #291c0a; @include border-radius(5px);
+  .main_content { display: inline-block; position: relative; padding: 0 4px; }  
+  .main_c { display: inline-block; position: relative; 
+    .main_c_l { position: absolute; }
+  }
+}
+
+#news_block { text-align: left; display: inline-block; width: 100%; font-family: $baseFontFamily; font-size: 12px; color: $white; 
+  .main_c { width: 284px; padding: 0 0 0 6px; }
+}
+
+#comments_block { display: inline-block; width: 100%; margin: 18px 0 0 0; background-color: $white; }
+
+.grey_block_css3 { background-color: #EEEEEE; @include border-radius(4px); color: #6A7287; }
+
+#placed_main_block { display: inline-block; width: 100%; overflow: hidden; @include border-radius(5px);
+  .bg_css3 { display: inline-block; width: 278px; margin: 20px 0 0 0; padding: 12px 12px 12px 8px; }
+  .tabs_placed {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    width: 278px;    
+    font: {family: $baseFontFamily; weight: bold; size: 12px;}
+    color: #545454;
+    
+    td {
+      &.cross { width: 33px; padding: 0 8px 0 0; 
+        div { height: 32px; width: 32px; display: inline-block; background-position: 0 0; background-repeat: no-repeat; }
+      }
+      
+      &.currency { width: 32px; padding: 0 9px 0 0; 
+        div { height: 32px; line-height: 32px; vertical-align: middle; text-align: center; width: 32px; display: inline-block; background: url(../images/bg/placed/currency_img.png) 0 0 no-repeat; }
+      }
+      
+      &.wins { width: 60px; padding: 0 8px 0 0; }
+            
+      &.placed { width: 60px; padding: 0 8px 0 0; }
+      
+      &.left { width: 60px; }
+      
+      &.placed, &.left { text-align: left; }
+       
+      &.wins, &.placed, &.left {
+        div.l_b_ {
+          display: inline-block;
+          padding: 0 0 0 2px;
+          border: 1px solid #9a9a9a;
+          background:  #d1d1d1;
+          @include background-image(linear-gradient(#fcfcfc, #d1d1d1));
+          @include border-radius(5px);
+        }
+        div.r_b_ { display: inline-block; padding: 0 2px 0 0; }
+        div.main_c { display: inline-block; width: 52px; height: 30px; line-height: 30px; text-align: center; overflow: hidden; vertical-align: middle; }
+      }
+    }
+    tr {
+      &.yellow td.cross div { background-image: url(../images/bg/placed/yellow_placed_img.png); }
+      &.red td.cross div { background-image: url(../images/bg/placed/red_placed_img.png); }
+      &.green td.cross div { background-image: url(../images/bg/placed/green_placed_img.png); }
+      &.blue td.cross div { background-image: url(../images/bg/placed/blue_placed_img.png); }
+      &.pink td.cross div { background-image: url(../images/bg/placed/pink_placed_img.png); }
+      
+      &.place_tr {
+        &.hover, &.active {
+          td.currency div { background-position: 0 -32px; color: $white; }
+          td.wins, td.placed, td.left { 
+            div.l_b_ { border: 1px solid #ff6600; background:  #ff3c00; @include background-image(linear-gradient(#ff6300, #ff3c00)); }
+            div.main_c { color: $white; height: 30px; line-height: 30px; width: 52px; }
+          }
+        }
+      } 
+      &.strip td { cursor: default; height: 5px!important; line-height: 1px!important; font-size: 1px; overflow: hidden; }
+    }
+    thead { 
+      td.cross { text-align: left; }
+      td.currency, td.wins, td.placed, td.left { text-align: center; }
+    }
+    tbody tr.place_tr td { cursor: pointer; height: 32px; line-height: 32px; vertical-align: middle; text-align: left; }
+  }
+  .tabs_placed, .tabs_placed tr, .tabs_placed td { padding: 0; margin: 0; border: 0 none; }
+  
+}
+
+.bg_css3 { border: 1px solid $white; background:  #cdcdcd; @include background-image(linear-gradient(#ffffff, #cdcdcd)); @include border-radius(5px); }
+
+#multisport-block { text-align: left;
+  .game-list-b { 
+    li { width: 225px; float: left; 
+      a { display: inline-block; width: 100%; overflow: hidden;
+        text: {decoration: none; transform: uppercase;}
+        font: {family: "Bebas"; size: 28px;}
+        @include text-shadow(#{-1px -1px 0 $black});
+        position: relative;
+        line-height: 1.2;
+        cursor: pointer;
+        
+        div { cursor: pointer; }
+        .title { padding: 16px 0 8px 15px; background:  $black; @include background-image(linear-gradient(#666666, #000000)); }
+        .img { float: left; height: 225px; width: 225px; }
+        .hover-l { position: absolute; top: 0; left: 0; width: 100%; @include opacity(0); }
+      }
+      
+      &.football a { color: #0099FF; 
+        .title { @include border-radius(5px 0 0 0); }
+        .img { background: url(../images/bg/football-img.png); }
+        .hover-l { color: $white; @include box-shadow(#{-1px -1px 0 #003366});
+          .title { background:  #003366; @include background-image(linear-gradient(#0099FF, #003366)); }
+          .img { background-color: #003366; }
+        }
+      }
+      &.cricket a { color: #999999; 
+        .img { background: url(../images/bg/cricket-img.png); }
+        .hover-l { color: $white; @include box-shadow(#{-1px -1px 0 #666666});
+          .title { background:  #666666; @include background-image(linear-gradient(#FFFFFF, #666666)); }
+          .img { background-color: #666666; }
+        }
+      }
+      &.tennis a { color: #C09D55; 
+        .img { background: url(../images/bg/tennis-img.png); }
+        .hover-l { color: $white; @include box-shadow(#{-1px -1px 0 #663300});
+          .title { background:  #663300; @include background-image(linear-gradient(#CC9966, #663300)); }
+          .img { background-color: #663300; }
+        }
+      }
+      &.golf a { color: #009933; 
+        .title { @include border-radius(0 5px 0 0); }
+        .img { background: url(../images/bg/golf-img.png); }
+        .hover-l { color: $white; @include box-shadow(#{-1px -1px 0 #003300});
+          .title { background:  #003300; @include background-image(linear-gradient(#009933, #003300)); }
+          .img { background-color: #003300; }
+        }
+      }
+    }
+  }
+  
+  .descript { 
+    display: inline-block;
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
+    @include border-radius(0 0 5px 5px);
+    color: #333333;
+    font: {family: "Bebas"; size: 38px;}
+    text-transform: uppercase;
+    @include text-shadow(#{1px 1px 0 #ffffff});
+    line-height: 1.2;
+    padding: 10px 0 12px 0;
+    background:  #a1a1a1;
+    @include background-image(linear-gradient(#fafafa, #a1a1a1));
+  }
+}
+
 
 /*
  * Footer CSS
  */
-#footer { 
-  
+#footer { padding: 0 50px 0 50px; text-align: left; font-size: 12px; width: 900px; margin: 0 auto;
+  .copyright { float: left; }
+  .terms-conditions-b { float: right; white-space: nowrap; text-align: left; font-family: Verdana; font-size: 9px; line-height: 12px; vertical-align: middle; 
+    li { float: right; }
+  }
 }
+
+#root_footer { padding-top: 30px; }
 
 
 /*
