@@ -1,6 +1,8 @@
 /*
  * Author: Eugene Tsurcan
  * email: tsurcan@softreactor.com
+ * 
+ * Theme: Default (Basketball)
  */
 
 
@@ -33,6 +35,9 @@ $baseFontWeight: 400;
 
 // CSS3 Compass-Animation (https://github.com/ericam/compass-animation)
 @import "animation";
+
+// JQuery UI
+@import "jquery-ui/jquery.ui.slider";
 
 
 // Fonts Import
@@ -151,20 +156,7 @@ a { color: $colour-link; outline: none; text-decoration: none;
   &:hover { text-decoration: underline; }
 }
 
-h1, h2, h3, h4, h5, h6 { 
-  > small { }
-}
-
-h1 { }
-h2 { }
-h3 { }
-h4 { }
-h5 { }
-h6 { }
-
-blockquote {}
-
-img { display: block; }
+input, textarea { outline: none; resize: none; }
 
 
 /*
@@ -254,7 +246,7 @@ img { display: block; }
   
   .right_border { display: inline-block; padding: 0 5px 0 0; }
   
-  .main_c { display: inline-block; height: 30px; line-height: 30px; vertical-align: middle; white-space: nowrap; 
+  .main_c { height: 30px; line-height: 30px; vertical-align: middle; white-space: nowrap; 
     a { float: left; margin: 0 12px; }
     .msg_ { margin: 0 53px 0 12px; padding: 0 0 0 32px; background: url(../images/bg/your_profile/msg_icon.png) center left no-repeat; }
     .login { padding: 0 120px 0 0; background: url(../images/bg/facebook-ico.png) center right no-repeat; }
@@ -284,9 +276,9 @@ img { display: block; }
   
   .left_border { display: inline-block; padding: 0 0 0 4px; }
   
-  .right_border { display: inline-block; padding: 0 4px 0 0; }
+  .right_border { padding: 0 4px 0 0; }
   
-  .main_c { display: inline-block; height: 38px; width: 892px; 
+  .main_c { height: 38px; width: 892px; 
     .title_ { 
       padding: 0 0 0 13px; 
       height: 38px; 
@@ -325,9 +317,9 @@ img { display: block; }
     @include border-radius(#{0 3px 3px 0});
   }
   
-  .right_border { display: inline-block; padding: 0 4px 0 0; }
+  .right_border { padding: 0 4px 0 0; }
   
-  .main_c { display: inline-block; width: 273px; padding: 0 8px 0 14px; 
+  .main_c { width: 273px; padding: 0 8px 0 14px; 
     .time_, .num-state-game-judge { display: inline-block; float: left; padding: 0 9px 0 0; height: 38px; }    
     .num-state-game-judge .num { padding: 0 5px 0 0; }
     .price_ { float: right; height: 38px; }
@@ -399,13 +391,14 @@ img { display: block; }
 
 #news_block { text-align: left; display: inline-block; width: 100%; font-family: $baseFontFamily; font-size: 12px; color: $white; 
   .main_c { width: 284px; padding: 0 0 0 6px; }
+  .brow_block_st { padding: 10px 0 0 0; }
 }
 
-#comments_block { display: inline-block; width: 100%; margin: 18px 0 0 0; background-color: $white; }
+#comments_block { display: inline-block; width: 100%; margin: 18px 0 0 0; }
 
 .grey_block_css3 { background-color: #EEEEEE; @include border-radius(4px); color: #6A7287; }
 
-#placed_main_block { display: inline-block; width: 100%; overflow: hidden; @include border-radius(5px);
+#placed_main_block { overflow: hidden; @include border-radius(5px);
   .bg_css3 { display: inline-block; width: 278px; margin: 20px 0 0 0; padding: 12px 12px 12px 8px; }
   .tabs_placed {
     -moz-user-select: none;
@@ -467,7 +460,7 @@ img { display: block; }
       td.cross { text-align: left; }
       td.currency, td.wins, td.placed, td.left { text-align: center; }
     }
-    tbody tr.place_tr td { cursor: pointer; height: 32px; line-height: 32px; vertical-align: middle; text-align: left; }
+    tbody tr.place_tr td { cursor: pointer; height: 32px; line-height: 0; vertical-align: middle; text-align: left; }
   }
   .tabs_placed, .tabs_placed tr, .tabs_placed td { padding: 0; margin: 0; border: 0 none; }
   
@@ -478,7 +471,7 @@ img { display: block; }
 #multisport-block { text-align: left;
   .game-list-b { 
     li { width: 225px; float: left; 
-      a { display: inline-block; width: 100%; overflow: hidden;
+      a { display: block; overflow: hidden;
         text: {decoration: none; transform: uppercase;}
         font: {family: "Bebas"; size: 28px;}
         @include text-shadow(#{-1px -1px 0 $black});
@@ -525,10 +518,8 @@ img { display: block; }
     }
   }
   
-  .descript { 
-    display: inline-block;
+  .descript {
     white-space: nowrap;
-    width: 100%;
     text-align: center;
     @include border-radius(0 0 5px 5px);
     color: #333333;
@@ -540,6 +531,209 @@ img { display: block; }
     background:  #a1a1a1;
     @include background-image(linear-gradient(#fafafa, #a1a1a1));
   }
+}
+
+#right_menu_game {
+  display: none;
+  height: 395px;
+  width: 181px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid $white;
+  background:  #30210c;
+  @include background-image(linear-gradient(#ac8124, #30210c));
+  
+  .content_main { display: inline-block; width: 100%; text-align: left; 
+    .msg_double_click { padding: 9px 8px 0 8px; 
+      table { width: 165px; height: 80px; overflow: hidden; font-size: 10px; line-height: 1.1; text-transform: uppercase; 
+        strong { display: inline-block; font-size: 11px; padding: 0 0 3px 0; }
+        td {
+          &.border_left { width: 15px; height: 80px; background: url(../images/bg/msg_double_click_left_b.png) no-repeat; }
+          &.border_right { width: 5px; height: 80px; background: url(../images/bg/msg_double_click_right_b.png) no-repeat; }
+          &.bg_ { width: 145px; height: 80px; vertical-align: middle; text-align: left; background: url(../images/bg/msg_double_click_bg.png) repeat-x; }
+        }
+      }
+    }
+    .section {
+      display: inline-block;
+      width: 163px;
+      height: 50px;
+      overflow: hidden;
+      margin: 10px 8px 0 8px; 
+      padding: 0;   
+      border: 1px solid $white;    
+      background:  #cdcdcd;
+      @include background-image(linear-gradient(#ffffff, #cdcdcd));
+      @include border-radius(5px);
+      
+      .left_border { display: inline-block; padding: 0 0 0 4px; width: 159px; }
+      .right_border { display: inline-block; padding: 0 4px 0 0; width: 155px; }
+      .main_c { display: inline-block; width: 155px; height: 50px; overflow: hidden; 
+        .info_ { width: 145px; display: inline-block; margin: 0 5px 0 5px; text-align: left; padding: 10px 0 0 0; 
+          label { display: inline-block; width: 100%; font: {size: 12px; weight: bold;} color: #555555; text-transform: uppercase; }
+          .bottom_info { display: inline-block; width: 100%; font: {size: 15px; weight: bold;} color: #555555; text-transform: uppercase; }
+        }        
+      }
+    }
+    .btn_screen_game { display: inline-block; width: 165px; padding: 10px 8px 0 8px; }
+  }
+}
+
+#btn_screen_game .cont_ { padding: 0; width: 155px; text-align: center; }
+
+#your_stake_block {
+  .info_ { background: {position: right 10px; repeat: no-repeat;} }
+  &.yellow .info_ { background-image: url(../images/bg/placed/yellow_placed_img.png); }
+  &.red .info_ { background-image: url(../images/bg/placed/red_placed_img.png); }
+  &.green .info_ { background-image: url(../images/bg/placed/green_placed_img.png); }
+  &.blue .info_ { background-image: url(../images/bg/placed/blue_placed_img.png); }
+  &.pink .info_ { background-image: url(../images/bg/placed/pink_placed_img.png); }
+}
+
+#tab_positining_ { display: inline-block; width: 165px; padding: 10px 8px 0 8px;
+  table, table tr, table td { cursor: pointer; -moz-user-select: none; -khtml-user-select: none; user-select: none; }
+  table { width: 163px; height: 117px; border-bottom: 1px solid $white; border-right: 1px solid $white; 
+    td { border-top: 1px solid $white; border-left: 1px solid $white; vertical-align: middle; 
+      &.curr_pos { background-color: #FF3C00; text-align: center; text-transform: uppercase; font-size: 10px; 
+        span { position: relative; }
+      }
+    }
+  }
+}
+
+.grid_div { position: absolute; top: 0; left: 0;
+  table { border-right: 1px solid $white;
+    td { border: {top: 1px solid $white; left: 1px solid $white;} vertical-align: middle; cursor: pointer; }
+  }
+}
+
+.screen_show { position: relative; overflow: hidden; padding: 0 0 1px 0; background: $white;
+  img.main_game_img { position: absolute; top: 0; left: 0; width: 552px; height: 396px; }
+  .borders_ { position: absolute; top: 0; left: 0; border: 1px solid #ffffff; border-width: 1px 0 1px 1px; -moz-user-select: none; -khtml-user-select: none; user-select: none; padding: 0 0 1px 0; }
+}
+
+.show_td { display:block; position: relative; overflow: hidden; background-color: transparent;
+  .spot_dot { position: absolute; top: 0; left: 0; display: inline-block; }
+  .bg_white_ { display: inline-block; position: absolute; top: 0; left: 0; background-color: $white; z-index: 30; @include opacity(0); }
+}
+
+#list_num_funds { display: inline-block; width: 276px; padding: 0 0 0 4px; overflow: hidden; text-align: center; 
+  li.row_, li.submit_ { display: inline-block; width: 100%; text-align: center; padding: 0 0 10px 0; white-space: nowrap; 
+    span:first-child { display: inline-block; }
+  }
+  li.submit_ { padding: 0; 
+    a {
+      float: left;
+      margin: 0 0 0 10px;
+      width: 125px;
+      height: 30px;    
+      line-height: 30px;
+      text: {align: center; transform: uppercase; }
+      font: {size: 12px; weight: bold; }
+      color: #555555;
+      @include border-radius(5px);
+      overflow: hidden;    
+      
+      &:first-child { margin: 0; }  
+      .main { cursor: pointer; display: inline-block; border: 1px solid #9A9A9A; width: 123px; height: 28px; @include border-radius(5px); background: none none; }     
+    }
+  }
+  li.row_ { 
+    .td_funds { float: left; margin: 0 0 0 10px; width: 80px; height: 80px; line-height: 80px; text-align: center;color: #555555; font: {size: 20px; weight: bold;} 
+      .main { cursor: pointer; display: inline-block; border: 1px solid #9A9A9A; width: 78px; height: 78px; background: none none; @include border-radius(5px); }
+      &:first-child { margin: 0; }
+    }
+  }
+  
+  li.row_ .td_funds .main:hover, li.row_ .td_funds.active .main, li.submit_ a .main:hover { 
+    color: $white;
+    border: 1px solid #FF6600;
+    background:  #ff3c00;
+    @include background-image(linear-gradient(#ff6300, #ff3c00));
+  }
+}
+
+.ui-slider-handle { cursor: pointer!important; }
+
+#spots { position: absolute; top:0; left: 0; overflow: hidden; 
+  .spot_dot { position: absolute; top:0; left: 0; display: inline-block; padding: 5px; 
+    .dot_ { position: relative; 
+      div { position: absolute; top: 0px; left: 0px; height: 1px; width: 1px; background-color: $white; display: inline-block; z-index: 5; }
+    } 
+    img { display: block; }
+  }
+}
+
+.summary_block { display: inline-block; width: 100%; height: 100%; position: relative;
+  div {
+    img { display: inline-block; width: auto; left: 0; top: 0; position: absolute; }
+    span { display: inline-block; top: 0; left: 0; width: 100%; text-align: center; position: absolute; z-index: 5; }
+  }
+  .mn_ { display: inline-block; position: relative; }
+  .summ {
+    display: none;
+    width: 30%!important;
+    height: 30%!important;
+    position: absolute;    
+    text-align: center;
+    vertical-align: middle;
+    
+    &.pink { top: 33.33%; left: 33.33%; }
+    &.orange { top: 33.33%; left: 33.33%; }
+    &.green { top: 2%; right: 2%; }
+    &.blue { top: 2%; left: 2%; }
+    &.red { bottom: 2%; right: 2%; }
+    &.yellow { bottom: 2%; left: 2%; }
+  }
+}
+
+#slider_stake_big { display: block; cursor: pointer; }
+#slider_stake { display: none; cursor: pointer; }
+
+.slider_vals_block {
+  .ui-corner-all { @include border-radius(2px); }
+  .ui-widget-content { background: none $white; border: 2px solid #FF3900; }
+  .ui-slider-horizontal { height: 1px; }
+  .ui-widget-header { background: none #FF6600; }
+  .ui-state-default, .ui-widget-content .ui-state-default { @include border-radius(4px); background: none $white; border: 1px solid #CFCFCF; }
+  .ui-slider-horizontal .ui-slider-handle { top: -6px; }
+  .ui-slider .ui-slider-handle { height: 10px; }
+}
+
+.switch_btn_main {
+  display: inline-block;
+  white-space: nowrap;
+  height: 18px;
+  width: 56px;
+  overflow: hidden;
+  background: url(../images/bg/swithc_btn.png) 0 0 no-repeat;
+  
+  &.on_active { background-position: 0 -18px; }
+  div { @include opacity(0); cursor: pointer; float: left; height: 18px; width: 28px; background: $white; }
+}
+
+#spots_judges { position: absolute; top: 0; left: 0; }
+
+#menu-right-b { display: inline-block; width: 100%; overflow: hidden; @include border-radius(5px); 
+  .bg_css3 { display: inline-block; width: 282px; padding: 12px 8px 12px 8px; text-align: left; }
+}
+
+.jspVerticalBar { width: 22px; background: none transparent; }
+
+.jspTrack { border: 1px solid #0099FF; background: #003366; @include border-radius(10px); width: 20px; }
+
+.jspContainer { padding-bottom: 2px!important; }
+
+.jspDrag { background: url(../images/bg/arrow-scroll-bg.png) 0 0 no-repeat transparent; }
+
+.scroll-pane { outline: none!important; }
+
+.for_opacity_hide td .show_td { background-color: $black; @include opacity(0.45); }
+.for_opacity_show td .show_td { 
+  background-color: transparent !important; 
+  filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{100})")!important;
+  opacity: 1!important;
 }
 
 
